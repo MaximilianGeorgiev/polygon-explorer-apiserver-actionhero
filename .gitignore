@@ -10,6 +10,7 @@ dist
 
 # Node / NPM
 npm-debug.log
+node_modules
 
 # OS-specific weirdness
 .DS_Store
