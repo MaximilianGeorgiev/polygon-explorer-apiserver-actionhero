@@ -14,7 +14,9 @@ export const DEFAULT = {
         { path: "/transactions/latest", action: "latestTransaction" },
         { path: "/transactions/pending", action: "pendingTransactions" },
         { path: "/transactions/address/:address", action: "transactionsCountByAddress" },
-        { path: "/transactions/hash/:hash", action: "transactionByHash" }
+        { path: "/transactions/hash/:hash", action: "transactionByHash" },
+
+        { path: "/addresses/:address", action: "accountBalance" }
       ],
 
       /* ---------------------
