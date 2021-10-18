@@ -45,14 +45,14 @@ export class PendingBlocks extends Action {
 export class BlockByNumberOrHash extends Action {
     constructor() {
         super();
-        this.name = "getBlockByNumberOrHash";
+        this.name = "blockByNumberOrHash";
         this.description = "Search for a specific block either by block hash or block number.";
 
         this.inputs = {
             block: {
                 required: true
             }
-        }
+        };
     }
 
     async run(data) {
@@ -70,7 +70,7 @@ export class BlockByNumberOrHash extends Action {
 export class MultipleBlocksAfterThreshold extends Action {
     constructor() {
         super();
-        this.name = "getMultipleBlocksAfterThreshold";
+        this.name = "multipleBlocksAfterThreshold";
         this.description = "Get X blocks starting from a specific block.";
 
         this.inputs = {

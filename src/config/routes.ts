@@ -8,8 +8,13 @@ export const DEFAULT = {
 
         { path: "/blocks/latest", action: "latestBlock" },
         { path: "/blocks/pending", action: "pendingBlocks" },
-        { path: "/blocks/ByNumber/OrHash/:block", action: "getBlockByNumberOrHash"},
-        { path: "/blocks/:fromBlock/:count", action: "getMultipleBlocksAfterThreshold"}
+        { path: "/blocks/ByNumber/OrHash/:block", action: "blockByNumberOrHash" },
+        { path: "/blocks/:fromBlock/:count", action: "multipleBlocksAfterThreshold" },
+
+        { path: "/transactions/latest", action: "latestTransaction" },
+        { path: "/transactions/pending", action: "pendingTransactions" },
+        { path: "/transactions/address/:address", action: "transactionsCountByAddress" },
+        { path: "/transactions/hash/:hash", action: "transactionByHash" }
       ],
 
       /* ---------------------
