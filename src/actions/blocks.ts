@@ -90,22 +90,27 @@ export class MultipleBlocksAfterThreshold extends Action {
 
     async run(data) {
         let response = [];
+        let latestBlock;
 
-        await web3.eth.getBlock('latest', false, (error, result) => { }).then((value) => {
-            const startBlockNumber = value.number - data.params.fromBlock; // get latest block number for calculations
-            const blockCount = data.params.count;
-
-            let fetchedBlocks = [];
-
-            for (let i = startBlockNumber; i >= startBlockNumber - blockCount; i--) {
-                web3.eth.getBlock(i, false, (error, result) => { }).then((value) => {
-                    fetchedBlocks.push(value);
-
-                    if (i == startBlockNumber - blockCount) {
-                        return { response: response };
-                    }
-                })
-            }
+        await web3.eth.getBlock('latest', false, (error, result) => { }).then(value => {
+            latestBlock = JSON.parse(JSON.stringify(value));
         });
+
+        const startBlockNumber = latestBlock.number - data.params.fromBlock; // get latest block number for calculations
+        const blockCount = data.params.count;
+
+        let fetchedBlocks = [];
+
+        for (let i = startBlockNumber; i >= startBlockNumber - blockCount; i--) {
+            await web3.eth.getBlock(i, false, (error, result) => { }).then((value) => {
+                fetchedBlocks.push(value);
+
+                if (i == startBlockNumber - blockCount) {
+                    response = JSON.parse(JSON.stringify(fetchedBlocks));
+                }
+            });
+        }
+
+        return { response: response };
     }
 }
