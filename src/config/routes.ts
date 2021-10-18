@@ -5,8 +5,11 @@ export const DEFAULT = {
         { path: "/status", action: "status" },
         { path: "/swagger", action: "swagger" },
         { path: "/createChatRoom", action: "createChatRoom" },
+
         { path: "/blocks/latest", action: "latestBlock" },
         { path: "/blocks/pending", action: "pendingBlocks" },
+        { path: "/blocks/ByNumber/OrHash/:block", action: "getBlockByNumberOrHash"},
+        { path: "/blocks/:fromBlock/:count", action: "getMultipleBlocksAfterThreshold"}
       ],
 
       /* ---------------------
