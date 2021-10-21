@@ -31,7 +31,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_MAXIMILIAN_PASSWORD }}
           
     - name: Install redis
-      run: apt-get install redis-server
+      run: sudo apt-get install redis-server
           
     - name: Start redis server
       run: redis-server --daemonize yes
