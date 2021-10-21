@@ -30,8 +30,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_MAXIMILIAN_USERNAME }}
           password: ${{ secrets.DOCKERHUB_MAXIMILIAN_PASSWORD }}
           
-   # - name: Run tests
-    #  run:  npm run test
+    - name: Run tests
+      run:  npm run test
    
     - name: Build and push
       id: docker_build
