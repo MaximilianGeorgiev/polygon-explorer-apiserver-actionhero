@@ -40,4 +40,4 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_MAXIMILIAN_USERNAME }}/polygon-explorer-backend-hapi:latest
+          tags: ${{ secrets.DOCKERHUB_MAXIMILIAN_USERNAME }}/polygon-explorer-backend-actionhero:latest
