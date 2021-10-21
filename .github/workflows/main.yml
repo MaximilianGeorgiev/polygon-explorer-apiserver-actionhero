@@ -36,14 +36,11 @@ jobs:
     - name: Start redis server
       run: redis-server --daemonize yes
       
-    - name: Install Forever to run local server as daemon
-      run: npm install forever -g
-      
     - name: Install dependencies
       run: npm install
           
     - name: Start local server
-      run: forever src/server.ts
+      run: npm run start &
           
     - name: Run tests
       run:  npm run test
