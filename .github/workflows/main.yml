@@ -30,6 +30,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_MAXIMILIAN_USERNAME }}
           password: ${{ secrets.DOCKERHUB_MAXIMILIAN_PASSWORD }}
           
+    - name: Install redis
+      run: apt-get install redis-server
+          
+    - name: Start redis server
+      run: redis-server --daemonize yes
+      
+    - name: Install dependencies
+      run: npm install
+          
     - name: Start local server
       run: npm run start
           
